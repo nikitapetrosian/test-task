@@ -1,0 +1,107 @@
+.page {
+    margin: 10px;
+
+    p {
+        margin-bottom: 8px;
+    }
+}
+
+.info {
+    border-collapse: collapse;
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    tr:nth-child(even){background-color: #f2f2f2;}
+    tr:hover {background-color: #ddd;}
+  }
+
+.btn, .btn_active {
+    margin-top: 16px;
+    padding: 2px 11px;
+    border: none;
+    background: #186DD6;
+    border-radius: 24px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    height: 48px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    &_active {
+        background: #0e9720;
+    }
+}
+.btn:hover {
+    background: #ff1c4f;
+}
+
+.bgasteroid {
+    position: absolute;
+    border-top: 1.3em solid rgb(255, 230, 9);
+    border-right: 1.3em solid rgb(255, 230, 9);
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    background: url('/asteroid.png') no-repeat;
+    background-size: cover;
+    right: 50px;
+    animation: falling 2.5s infinite linear;
+
+    @keyframes falling {
+        0% {
+          transform: scale(0.3) rotateZ(20deg);
+          opacity: 0.1;
+        }
+        18% {
+            transform: scale(0.5) translate(-100%, 50%);
+            opacity: 0.3;
+          }
+        36% {
+            transform: scale(0.7) translate(-200%, 100%);
+          }
+        64% {
+            transform: scale(0.9) translate(-350%, 220%);
+            opacity: 1;
+          }
+        82% {
+          transform: scale(1.1) translate(-400%, 350%) rotateZ(-20deg);
+          opacity: 0;
+        }
+        100% {
+            opacity: 0;
+          }
+    }
+}
+
+.bgasteroid::after {
+    content: '';
+    width: 65px;
+    height: 75px;
+    top: -40px;
+    left: 0;
+    position: absolute;
+    border-radius: 50%;
+    border-top: 1.3em solid rgba(255, 70, 70, 0.5);
+    border-right: 1.3em solid rgba(255, 70, 70, 0.5);
+    z-index: -10;
+    transform: skew(0deg, -20deg);
+}
+
+.bgearth {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    right: 5%;
+    top: 50%;
+    background: url('/earth.png') no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 800px) {
+  .bgearth, .bgasteroid {
+    visibility: hidden;
+}
+}

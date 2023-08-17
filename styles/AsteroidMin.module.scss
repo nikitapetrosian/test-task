@@ -1,0 +1,46 @@
+.asteroid {
+    p {
+        margin-bottom: 8px;
+    }
+    button {
+        margin-top: 16px;
+        padding: 2px 11px;
+        border: none;
+        background: #186DD6;
+        border-radius: 24px;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 700;
+        height: 24px;
+        font-size: 11px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        &.active {
+            background: #0e9720;
+        }
+    }
+    button:hover {
+        background: #ff1c4f;
+    }
+}
+
+.card {
+    display: flex;
+}
+
+.signature {
+    width: 184px;
+    p {
+        margin: 0;
+    }
+    a {
+        display: block;
+        text-decoration: underline;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    padding-left: 11px;
+}
+
+

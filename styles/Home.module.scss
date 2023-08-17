@@ -1,0 +1,53 @@
+@import 'mixins';
+@import 'spinner';
+
+.sort {
+    display: flex;
+    padding-top: 8px;
+    align-items: center;
+    justify-content: space-between;
+    .danger {
+        display: flex;
+        align-items: flex-end;
+        input {
+            margin: 0 7px 0 0;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+        label {
+            cursor: pointer;
+        }
+    }
+
+    span {
+        @include navigate;
+    }
+}
+
+.infinite-scroll-component {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 288px);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
+}
+
+@media screen and (max-width: 770px) {
+    .sort {
+        display: block;
+    }
+    .wrapper {
+        margin: 24px 16px 32px 16px;
+        h2 {
+            font-size: 24px;
+        }
+    }
+    .asteroids {
+        margin-top: 32px;
+    }
+    .danger {
+        margin-top: 8px;
+    }
+  }

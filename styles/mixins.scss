@@ -1,0 +1,9 @@
+@mixin navigate {
+    &.active {
+      font-weight: bold;
+      text-decoration: none;
+      cursor: default;
+  }
+  text-decoration: underline;
+  cursor: pointer;
+  }

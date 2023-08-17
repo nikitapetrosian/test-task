@@ -1,0 +1,241 @@
+.danger {
+    background: #ff486f;
+}
+.safe {
+    background: #91f7c4;
+}
+
+.btn {
+    margin-top: 16px;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 4px;
+    background: #186DD6;
+    color: white;
+    height: 56px;
+    font-weight: 400;
+    font-size: 20px;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #ff1c4f;
+}
+
+.list, .list_disabled {
+    width: 30%;
+    &_disabled {
+        opacity: 0;
+        visibility: hidden;
+    }
+    a {
+        cursor: pointer;
+    }
+    li {
+        list-style: none;
+        text-align: center;
+        border-radius: 10px;
+        border: gray 1px solid;
+        position: relative;
+        padding: 10px 0;
+        margin: 5px 0;
+        cursor: pointer;
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 40px;
+            height: 40px;
+            left: -45px;
+            top: -3px;
+            background: url('/asteroid.png') no-repeat;
+            background-size: contain;
+        }
+        &:hover {
+            background: #ddd;
+        }
+    }
+    transition: all 0.5s ease;
+}
+
+.dashboard {
+    display: flex;
+}
+
+.description {
+    width: 70%;
+    margin: 16px;
+    text-align: center;
+    line-height: 26px;
+}
+
+.rocketship, .rocketship_active {
+    position: absolute;
+    width: 100px;
+    height: 175px;
+    border-bottom: gray 1px solid;
+    background: url('/rocketship.png') no-repeat;
+    background-size: cover;
+    right: 35%;
+    top: 60%;
+        &_active {
+            border: none;
+            animation: launch 2s both;
+        }
+  @keyframes launch {
+    0% {
+        transform: translateX(0);
+    }
+    5%,
+    15%,
+    25%,
+    45% {
+        transform: translateX(-10px);
+    }
+    10%,
+    20%,
+    30% {
+        transform: translateX(10px);
+    }
+    50% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+  }
+}
+.empty {
+    width: 100%;
+    height: 400px;
+    text-align: center;
+}
+
+.emptybg {
+    background: url('/target.png') no-repeat;
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    position: relative;
+    top: 20%;
+}
+.emptybg::after,
+.emptybg::before {
+  content: '';  
+  box-sizing: border-box;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 3px solid #fa5050;
+  position: absolute;
+  left: -35px;
+  top: -35px;
+  animation: animloader 3s linear infinite;
+}
+.emptybg::after {
+  animation-delay: 1s;
+}
+
+@keyframes animloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+
+.successbg {
+    position: relative;
+    top: 20%;
+    left: 45%;
+    width: 100px;
+    height: 100px;
+    background: url('/asteroid.png') no-repeat;
+    background-size: cover;
+    animation: success 3s both;
+}
+
+.successbg::after,
+.successbg::before {
+  content: '';  
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #fa5050;
+  background: #ff1c4f;
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  animation: animloader2 3s linear;
+}
+.successbg::after {
+  animation-delay: 1s;
+}
+
+@keyframes success {
+    0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        }
+  }
+
+  @keyframes animloader2 {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(5);
+      opacity: 0;
+    }
+  }
+
+@media screen and (max-width: 1020px) {
+    .btn {
+        padding: 4px 12px;
+        height: 36px;
+        font-size: 14px;
+    }
+    .dashboard {
+        display: block;
+    }
+    .description {
+        width: 90%;
+        margin-bottom: 50px;
+    }
+    .list, .list_disabled {
+        width: 100%;
+        text-align: center;
+        ul {
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        li {
+            a {
+                padding: 5px;
+            }
+            &::before {
+                visibility: collapse;
+            }
+        }
+    }
+    .rocketship, .rocketship_active {
+        opacity: 0.2;
+        left: 0;
+        top: 67%;
+            &_active {
+                opacity: 1;
+            }
+        }
+  }
